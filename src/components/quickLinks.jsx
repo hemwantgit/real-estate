@@ -15,8 +15,14 @@ export default (props) => {
                 <Header as='h3'>Quick Links</Header>
                 <List >
                     <List.Item
+                        icon='group'
+                        content={<a href='https://signaturedreams.ul.mygateliving.in/overview' target={'_blank'}>MyGate</a>}
+                    />
+                    <List.Item
                         icon='comment outline'
-                        content={<a href='https://www.ferendum.com/en/PID1075701PSD2068069564' target={'_blank'}>Voting: Apr,2022</a>}
+                        content={<a href='https://www.ferendum.com/en/PID1075701PSD2068069564' target={'_blank'}>
+                        Voting: Apr,2022
+                        </a>}
                     />
                     <List.Item
                         icon='external'

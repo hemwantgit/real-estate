@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import Home from './views/Home';
 import Activity from './views/Activity';
+import Contacts from './views/Contacts';
 
 const routeMapping = {
   "/home": {
@@ -14,6 +15,10 @@ const routeMapping = {
   "/activity": {
     name: "activity",
     displayName: "Activity",
+  },
+  "/contacts": {
+    name: "contacts",
+    displayName: "Contacts",
   }
 }
 
@@ -61,6 +66,7 @@ class App extends React.Component {
             <Route path="/home" exact component={Home} />
             {/* <Route path="/messages/:id" exact render={(props) => <CustomDashboard isDataProcessEnabled={true} {...props} />} /> */}
             <Route path="/activity" component={Activity} />
+            <Route path="/contacts" component={Contacts} />
           </div>
         </div>
       </Router>

@@ -1,0 +1,50 @@
+[
+    {
+        "order": 1,
+        "service": "Security (Day)",
+        "name": "Basudev Pant",
+        "contact": "7204143385",
+        "rating": 4,
+        "comments": []
+    },
+    {
+        "order": 2,
+        "service": "Security (Night)",
+        "name": "Bhandev",
+        "contact": "8376950440",
+        "rating": 5,
+        "comments": []
+    },
+    {
+        "order": 3,
+        "service": "Internet (ACT)",
+        "name": "Chandra Gowda",
+        "contact": "8792740609",
+        "rating": 4,
+        "comments": []
+    },
+    {
+        "order": 4,
+        "service": "Electrician",
+        "name": "Radha Krishna",
+        "contact": "6366177689",
+        "rating": 5,
+        "comments": []
+    },
+    {
+        "order": 5,
+        "service": "Milkman",
+        "name": "Ramesh",
+        "contact": "9740501322",
+        "rating": 5,
+        "comments": []
+    },
+    {
+        "order": 5,
+        "service": "News Paper",
+        "name": "Ramesh H M",
+        "contact": "9740714157",
+        "rating": 5,
+        "comments": []
+    }
+]
