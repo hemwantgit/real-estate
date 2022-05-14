@@ -16,17 +16,24 @@ export default (props) => {
                 <Grid.Column width={3}>
                     <List divided relaxed>
                         <List.Item>
-                            <List.Icon name='building' size='large' verticalAlign='middle' />
+                            <List.Icon name='student' size='large' verticalAlign='middle' />
                             <List.Content>
                                 <List.Header as='a'>Schools</List.Header>
                                 <List.Description as='a'>VIBGYOR, SHRI RAM GLOBAL SCHOOL, NEW BALDWIN</List.Description>
                             </List.Content>
                         </List.Item>
                         <List.Item>
-                            <List.Icon name='building' size='large' verticalAlign='middle' />
+                            <List.Icon name='shop' size='large' verticalAlign='middle' />
                             <List.Content>
                                 <List.Header as='a'>MALL</List.Header>
                                 <List.Description as='a'>ORION UPTOWN MALL</List.Description>
+                            </List.Content>
+                        </List.Item>
+                        <List.Item>
+                            <List.Icon name='hospital' size='large' verticalAlign='middle' />
+                            <List.Content>
+                                <List.Header as='a'>Hospitals</List.Header>
+                                <List.Description as='a'>Ovum, Siliconcity Hospitals, East Point Multi-Speciality Hospital, Femiint Health Family Clinics</List.Description>
                             </List.Content>
                         </List.Item>
                     </List>

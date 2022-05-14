@@ -15,7 +15,7 @@ import { OVERVIEW_TEXT, DISCLAIMER_TEXT, GALLERY_IMAGES, AMENITIES_IMAGES, VOTIN
 
 export default () => {
 
-    let [activeIndex, setActiveIndex] = useState();
+    let [activeIndex, setActiveIndex] = useState(0);
 
     let handleClick = (e, titleProps) => {
         const { index } = titleProps
