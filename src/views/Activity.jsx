@@ -1,10 +1,96 @@
-import React, { useState } from 'react';
+import _ from 'lodash'
+import React, { createRef, useState } from 'react'
+import {
+    Grid,
+    Ref,
+    Segment,
+    Accordion,
+    Icon,
+    Header,
+    Table
+} from 'semantic-ui-react'
+
+import QuickLinks from '../components/quickLinks';
+import { OVERVIEW_TEXT, DISCLAIMER_TEXT, GALLERY_IMAGES, AMENITIES_IMAGES, VOTING } from '../utils/constants';
 
 export default () => {
-    // const [mustSpin, setMustSpin] = useState(false);
-    // const [prizeNumber, setPrizeNumber] = useState(0);
 
+    let [activeIndex, setActiveIndex] = useState();
+
+    let handleClick = (e, titleProps) => {
+        const { index } = titleProps
+        const newIndex = activeIndex === index ? -1 : index
+
+        setActiveIndex(newIndex)
+    }
+    let contextRef = createRef();
     return (
-        <div style={{ 'margin': 'auto', 'width':'66%' }}> Coming Soon</div>
+        <Grid columns={1}>
+            <Grid.Column width={13}>
+                <Ref innerRef={contextRef}>
+                    <Segment>
+
+                        <Accordion fluid styled>
+                            <Accordion.Title
+                                active={activeIndex === 0}
+                                index={0}
+                                onClick={handleClick}
+                            >
+                                <Icon name='dropdown' />
+                                Maintenance Voting
+                            </Accordion.Title>
+                            <Accordion.Content active={activeIndex === 0}>
+                                <Segment>
+                                    <img alt='Voting' src={VOTING.requiredMnt}
+                                        style={{ "width": "100%", "height": "400px" }} />
+                                    <Header as='h3'>Max amount possible to collect per month (no defaulter)</Header>
+                                    <Table celled padded>
+                                        <Table.Header>
+                                            <Table.Row>
+                                                <Table.HeaderCell singleLine>Rate</Table.HeaderCell>
+                                                <Table.HeaderCell>Collected Amount</Table.HeaderCell>
+                                            </Table.Row>
+                                        </Table.Header>
+
+                                        <Table.Body>
+                                            <Table.Row>
+                                                <Table.Cell>
+                                                    <Header as='h2' textAlign='center'>
+                                                        30 Paise
+                                                    </Header>
+                                                </Table.Cell>
+                                                <Table.Cell singleLine>71,357 INR</Table.Cell>
+                                            </Table.Row>
+                                            <Table.Row>
+                                                <Table.Cell>
+                                                    <Header as='h2' textAlign='center'>
+                                                        50 Paise
+                                                    </Header>
+                                                </Table.Cell>
+                                                <Table.Cell singleLine>1,18,931 INR</Table.Cell>
+                                            </Table.Row>
+                                            <Table.Row>
+                                                <Table.Cell>
+                                                    <Header as='h2' textAlign='center'>
+                                                        70 Paise
+                                                    </Header>
+                                                </Table.Cell>
+                                                <Table.Cell singleLine>1,66,501 INR</Table.Cell>
+                                            </Table.Row>
+                                        </Table.Body>
+                                    </Table>
+                                    <a href={'https://www.ferendum.com/en/PID1075701PSD2068069564'} target={'_blank'}><img alt='Voting' src={VOTING.votingStatus}
+                                        style={{ "width": "100%", "height": "400px" }} /></a>
+                                </Segment>
+                            </Accordion.Content>
+
+                        </Accordion>
+
+
+                        <QuickLinks contextRef={contextRef} />
+                    </Segment>
+                </Ref>
+            </Grid.Column>
+        </Grid>
     )
 }

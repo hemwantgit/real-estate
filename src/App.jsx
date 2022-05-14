@@ -39,7 +39,12 @@ class App extends React.Component {
             <Menu.Menu>
               <Menu.Item style={{"width":"200px"}}>
                 <img alt="SD" src={require('./sd_logo2.png')} />
-                <Label>Signature Dreams</Label>
+                <Label style={{
+                  "letterSpacing": "5px",
+                  "height": "37px",
+                  "fontSize": "15px",
+                  "marginLeft":0,
+                }}>Signature Dreams</Label>
               </Menu.Item>
               {
                 Object.keys(routeMapping).map((key) => (

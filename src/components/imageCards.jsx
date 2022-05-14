@@ -10,10 +10,11 @@ export default (props) => {
     return (
         <Segment>
             {dividerText && <Divider horizontal>{dividerText}</Divider>}
+            <p>Full list of Amenities</p>
             <Card.Group itemsPerRow={6}>
                 {
-                    props.images.map((imagePath, index) => (
-                        <Card raised key={`card-${index}`}  image={require('../sd_southgate.png')}/>))
+                    props.images.map((imageProp, index) => (
+                        <Card raised key={`card-${index}`}  image={imageProp.image}/>))
                 }
             </Card.Group>
         </Segment>

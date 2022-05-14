@@ -20,7 +20,11 @@ export default (props) => {
                     />
                     <List.Item
                         icon='linkify'
-                        content={<a href='https://docs.google.com/spreadsheets/d/1vgLsEVU7FRuV3I7E0f--hVfxAzO0-9pq/edit#gid=1570374283' target={'_blank'}>Maintainance Sheet</a>}
+                        content={<a href='https://docs.google.com/spreadsheets/d/1vgLsEVU7FRuV3I7E0f--hVfxAzO0-9pq/edit#gid=1570374283' target={'_blank'}>Maintenance Sheet</a>}
+                    />
+                    <List.Item
+                        icon='facebook f'
+                        content={<a href='https://www.facebook.com/groups/609871970280157/?ref=share' target={'_blank'}>Facebook Group</a>}
                     />
                 </List>
             </Sticky>
