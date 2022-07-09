@@ -36,3 +36,16 @@
   margin: auto;
   width: 50%;
 }
+
+.small-screen {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .large-screen {
+    display: none;
+  }
+  .small-screen{
+    display: block;
+  }
+}
