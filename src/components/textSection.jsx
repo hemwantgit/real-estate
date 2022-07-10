@@ -10,7 +10,6 @@ import {
 export default (props) => {
 
     const { dividerText, header, paras, className } = props;
-    console.log(paras)
     return (
         <Segment className={className}>
             {dividerText && <Divider horizontal>{dividerText}</Divider>}

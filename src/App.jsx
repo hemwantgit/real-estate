@@ -1,27 +1,28 @@
 import React from 'react';
-import { Label, Menu, Button, Sidebar, Segment, Icon, Image, Header } from 'semantic-ui-react';
+import { Label, Menu, Button, Sidebar, Segment, Icon, Message, Header } from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import './App.css';
 import Home from './views/Home';
 import Activity from './views/Activity';
 import Contacts from './views/Contacts';
+import Links from './views/mobile/Links';
 
 const routeMapping = {
   "/home": {
     name: "home",
     displayName: "Home",
-    icon:"home"
+    icon: "home"
   },
   "/activity": {
     name: "activity",
     displayName: "Activity",
-    icon:"sticky note"
+    icon: "sticky note"
   },
   "/contacts": {
     name: "contacts",
     displayName: "Contacts",
-    icon:"group"
+    icon: "group"
   }
 }
 
@@ -37,7 +38,7 @@ class App extends React.Component {
     }
   }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name,  openMenuItems: false})
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name, openMenuItems: false })
 
 
   render() {
@@ -46,24 +47,26 @@ class App extends React.Component {
       <Router>
         <div >
 
-        <div class="small-screen">
-          <Menu inverted class="small-screen">
-            <Menu.Menu>
-              <Menu.Item >
-                <img alt="SD" src={require('./sd_logo2.png')} />
-                <Label style={{
-                  "letterSpacing": "5px",
-                  "height": "37px",
-                  "fontSize": "22px",
-                  "marginLeft": 0,
-                }}>SD</Label>
-              </Menu.Item>
-              <Menu.Item >
-                <Button icon={this.state.openMenuItems ? "close" : "sidebar"} class="left" onClick={() => this.setState({ openMenuItems: !this.state.openMenuItems })} />
-              </Menu.Item>
-            </Menu.Menu>
-          </Menu>
-        </div>
+          <div class="small-screen">
+            <Menu inverted>
+              <Menu.Menu>
+                <Menu.Item >
+                  <img alt="SD" src={require('./sd_logo2.png')} title={'Signature Dreams'} />
+                  <Label style={{
+                    "letterSpacing": "5px",
+                    "height": "37px",
+                    "fontSize": "22px",
+                    "marginLeft": 0,
+                  }}>SD</Label>
+                </Menu.Item>
+              </Menu.Menu>
+              <Menu.Menu position='right'>
+                <Menu.Item >
+                  <Button icon={this.state.openMenuItems ? "close" : "sidebar"} class="left" onClick={() => this.setState({ openMenuItems: !this.state.openMenuItems })} />
+                </Menu.Item>
+              </Menu.Menu>
+            </Menu>
+          </div>
           <div class="large-screen">
             <Menu inverted >
               <Menu.Menu>
@@ -99,21 +102,31 @@ class App extends React.Component {
               direction='right'
             >
               {
-                  Object.keys(routeMapping).map((key) => (
-                    <Menu.Item name={routeMapping[key].name} as={Link} key={key} to={key} onClick={this.handleItemClick} active={activeItem === routeMapping[key].name} color={'grey'}>
-                      <Icon name={routeMapping[key].icon} />{routeMapping[key].displayName}
-                    </Menu.Item>))
+                Object.keys(routeMapping).map((key) => (
+                  <Menu.Item name={routeMapping[key].name} as={Link} key={key} to={key} onClick={this.handleItemClick} active={activeItem === routeMapping[key].name} color={'grey'}>
+                    <Icon name={routeMapping[key].icon} />{routeMapping[key].displayName}
+                  </Menu.Item>))
+              }
+              {
+                  <Menu.Item name={'quick-links'} as={Link} key={'links'} to={'links'} onClick={this.handleItemClick} active={activeItem === 'links'} color={'grey'}>
+                    <Icon name={'help'} /> Quick Links
+                </Menu.Item>
                 }
             </Sidebar>
 
             <Sidebar.Pusher>
+             
               <div>
-
+              <Message
+                icon='announcement'
+                header='Next AGM scheduled on July 31, 2022.'
+              />
                 <Route path="/" exact component={Home} />
                 <Route path="/home" exact component={Home} />
                 {/* <Route path="/messages/:id" exact render={(props) => <CustomDashboard isDataProcessEnabled={true} {...props} />} /> */}
                 <Route path="/activity" component={Activity} />
                 <Route path="/contacts" component={Contacts} />
+                <Route path="/links" component={Links} />
               </div>
 
             </Sidebar.Pusher>

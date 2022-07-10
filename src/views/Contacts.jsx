@@ -35,7 +35,7 @@ export default () => {
 
         <Segment>
             <Header> List of service providers worked in layout and have good feedback.</Header>
-            <Table celled padded>
+            <Table celled padded unstackable>
               <Table.Header>
                 <Table.Row>
                  <Table.HeaderCell>Service</Table.HeaderCell>

@@ -11,10 +11,11 @@ import {
 } from 'semantic-ui-react'
 
 import QuickLinks from '../components/quickLinks';
-import { OVERVIEW_TEXT, DISCLAIMER_TEXT, GALLERY_IMAGES, AMENITIES_IMAGES, VOTING } from '../utils/constants';
+import { VOTING } from '../utils/constants';
 
 export default () => {
 
+    let isLargeScreen = visualViewport.width > 768;
     let [activeIndex, setActiveIndex] = useState(0);
 
     let handleClick = (e, titleProps) => {
@@ -25,9 +26,11 @@ export default () => {
     }
     let contextRef = createRef();
     return (
-        <Grid columns={1}>
-            <Grid.Column width={13}>
-                <Ref innerRef={contextRef}>
+        <Ref innerRef={contextRef}>
+            <Grid columns={1}>
+
+                <Grid.Column width={isLargeScreen ? 13 : 16}>
+
                     <Segment>
 
                         <Accordion fluid styled>
@@ -85,12 +88,12 @@ export default () => {
                             </Accordion.Content>
 
                         </Accordion>
-
-
-                        <QuickLinks contextRef={contextRef} />
                     </Segment>
-                </Ref>
-            </Grid.Column>
-        </Grid>
+
+                    {isLargeScreen && <QuickLinks contextRef={contextRef} />}
+
+                </Grid.Column>
+            </Grid>
+        </Ref>
     )
 }

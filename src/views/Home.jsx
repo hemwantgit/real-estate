@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import React, {  createRef } from 'react'
+import React, { createRef } from 'react'
 import {
   Grid,
   Ref,
@@ -14,43 +14,44 @@ import ImageDescription from '../components/imageDescription';
 import { OVERVIEW_TEXT, DISCLAIMER_TEXT, GALLERY_IMAGES, AMENITIES_IMAGES, LOCATION } from '../utils/constants';
 
 export default () => {
+  let isLargeScreen = visualViewport.width > 768;
 
-    let contextRef = createRef();
-    return (
-        <Grid columns={1}>
-        <Grid.Column width={13}>
-          <Ref innerRef={contextRef}>
-            <Segment>
-                <img alt="SD" src={require('../sd_southgate.png')} style={{"width":"100%", "height":"400px"}}/>
+  let contextRef = createRef();
+  return (
+    <Grid columns={1}>
+      <Grid.Column width={isLargeScreen ? 13 : 16}>
+        <Ref innerRef={contextRef}>
+          <Segment>
+            <img alt="SD" src={require('../sd_southgate.png')} style={{ "width": "100%", "height": "400px" }} />
 
-            <TextSection 
-            dividerText={'Overview'}
-            header={'Signature Dreams'}
-            paras={[OVERVIEW_TEXT]}
+            <TextSection
+              dividerText={'Overview'}
+              header={'Signature Dreams'}
+              paras={[OVERVIEW_TEXT]}
             />
-            <ImageCards 
-            dividerText={'Amenities'}
-            images={AMENITIES_IMAGES}
+            <ImageCards
+              dividerText={'Amenities'}
+              images={AMENITIES_IMAGES}
             />
 
-             <ImageDescription 
-            dividerText={'Location'}
-            location={LOCATION}
+            <ImageDescription
+              dividerText={'Location'}
+              location={LOCATION}
             />
-             <ImageGallery 
-            dividerText={'Gallery'}
-            images={GALLERY_IMAGES}
+            <ImageGallery
+              dividerText={'Gallery'}
+              images={GALLERY_IMAGES}
             />
-            <TextSection 
-            dividerText={'Disclaimer'}
-            paras={DISCLAIMER_TEXT}
+            <TextSection
+              dividerText={'Disclaimer'}
+              paras={DISCLAIMER_TEXT}
             />
-             
 
-                <QuickLinks contextRef={contextRef}/>
-            </Segment>
-          </Ref>
-        </Grid.Column>
-      </Grid>
-    )
+            {isLargeScreen && <QuickLinks contextRef={contextRef} />}
+
+          </Segment>
+        </Ref>
+      </Grid.Column>
+    </Grid>
+  )
 }

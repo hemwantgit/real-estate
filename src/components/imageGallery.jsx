@@ -10,7 +10,6 @@ import {
 export default (props) => {
 
     const { dividerText } = props;
-    console.log(JSON.stringify(props.images));
     return (
         <>
             {dividerText && <Divider horizontal>{dividerText}</Divider>}
