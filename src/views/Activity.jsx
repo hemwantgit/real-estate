@@ -27,7 +27,7 @@ export default () => {
     let contextRef = createRef();
     return (
         <Ref innerRef={contextRef}>
-            <Grid columns={1}>
+            <Grid columns={1} style={{height:"100vh"}}>
 
                 <Grid.Column width={isLargeScreen ? 13 : 16}>
 

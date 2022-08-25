@@ -1,5 +1,5 @@
 import React from 'react';
-import { Label, Menu, Button, Sidebar, Segment, Icon, Message, Header } from 'semantic-ui-react';
+import { Label, Menu, Button, Sidebar, Segment, Icon } from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import './App.css';
@@ -7,6 +7,7 @@ import Home from './views/Home';
 import Activity from './views/Activity';
 import Contacts from './views/Contacts';
 import Links from './views/mobile/Links';
+import Messages from './components/messages';
 
 const routeMapping = {
   "/home": {
@@ -117,10 +118,7 @@ class App extends React.Component {
             <Sidebar.Pusher>
              
               <div>
-              <Message
-                icon='announcement'
-                header='Next AGM scheduled on July 31, 2022.'
-              />
+                <Messages/>
                 <Route path="/" exact component={Home} />
                 <Route path="/home" exact component={Home} />
                 {/* <Route path="/messages/:id" exact render={(props) => <CustomDashboard isDataProcessEnabled={true} {...props} />} /> */}
